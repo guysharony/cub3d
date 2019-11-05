@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 11:26:53 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/05 12:07:41 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/11/05 12:16:23 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_color(int r, int g, int b)
 {
-	return (r + (g << 16) + (b << 8));
+	return (b + (r << 16) + (g << 8));
 }
 
 void	ft_fill(void *win, int w, int h, int color)
