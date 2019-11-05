@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 08:45:43 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/05 11:55:50 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/11/05 12:08:02 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void	ft_fill(void *win, int w, int h, int color);
 void	ft_text(void *win, int w, int h, int color, char *str);
 void	ft_event(void *win, void *p);
 int		ft_key(int key, void *p);
+int		ft_color(int r, int g, int b);
 
 #endif
