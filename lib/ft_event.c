@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   ft_event.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/05 08:45:43 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/05 11:55:50 by gsharony         ###   ########.fr       */
+/*   Created: 2019/11/05 11:51:39 by gsharony          #+#    #+#             */
+/*   Updated: 2019/11/05 11:55:23 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "../main.h"
 
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include "mlx/mlx.h"
-# define W 650
-# define H 450
+void	ft_event(void *win, void *p)
+{
+	mlx_key_hook(win, ft_key, p);
+}
 
-void	*mlx;
-void	*win;
-
-void	ft_fill(void *win, int w, int h, int color);
-void	ft_text(void *win, int w, int h, int color, char *str);
-void	ft_event(void *win, void *p);
-int		ft_key(int key, void *p);
-
-#endif
+int		ft_key(int key, void *p)
+{
+	if (key == 123)
+		printf("Left\n");
+	else if (key == 124)
+		printf("Right\n");
+	else if (key == 125)
+		printf("Down\n");
+	else if (key == 126)
+		printf("Up\n");
+	else if (key == 53)
+		exit(0);
+	return (0);
+}
