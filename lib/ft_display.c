@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 11:26:53 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/05 12:39:35 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/11/07 08:14:06 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_color(int r, int g, int b)
 	return ((r << 16) + (g << 8) + b);
 }
 
-void	ft_fill(void *win, int w, int h, int color)
+void	ft_fill(t_env e, int w, int h, int color)
 {
 	int x;
 	int y;
@@ -33,11 +33,11 @@ void	ft_fill(void *win, int w, int h, int color)
 	{
 		y = h;
 		while (y--)
-			mlx_pixel_put(mlx, win, x, y, color);
+			mlx_pixel_put(e.mlx, e.win, x, y, color);
 	}
 }
 
-void	ft_text(void *win, int w, int h, int color, char *str)
+void	ft_text(t_env e, int w, int h, int color, char *str)
 {
-	mlx_string_put(mlx, win, w, h, color, str);
+	mlx_string_put(e.mlx, e.win, w, h, color, str);
 }

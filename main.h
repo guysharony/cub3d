@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 08:45:43 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/05 12:08:02 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/11/07 11:56:57 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,44 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
-# include "mlx/mlx.h"
-# define W 650
-# define H 450
+# include <mlx.h>
+# define W 1500
+# define H 800
+# define AVERAGE(a, b) ((((a) ^ (b)) & 0xfffefefeL) >> 1) + ((a) & (b))
 
-void	*mlx;
-void	*win;
+typedef struct		s_setup
+{
+	int				bpp;
+	int				sl;
+	int				endian;
+}					t_setup;
 
-void	ft_fill(void *win, int w, int h, int color);
-void	ft_text(void *win, int w, int h, int color, char *str);
-void	ft_event(void *win, void *p);
+typedef struct		s_vector
+{
+	int				x;
+	int				y;
+	int				z;
+}					t_vector;
+
+typedef struct		s_ray
+{
+	t_vector		o;
+	t_vector		d;
+}					t_ray;
+
+typedef struct		s_env
+{
+	void			*mlx;
+	void			*win;
+	void			*img;
+	char			*data;
+	t_setup			setup;
+	unsigned int	*img_temp;
+}					t_env;
+
+void	ft_fill(t_env e, int w, int h, int color);
+void	ft_text(t_env e, int w, int h, int color, char *str);
+void	ft_event(t_env e, void *p);
 int		ft_key(int key, void *p);
 int		ft_color(int r, int g, int b);
 

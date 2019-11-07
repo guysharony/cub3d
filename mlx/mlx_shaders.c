@@ -232,8 +232,6 @@ int mlx_shaders_font(glsl_info_t *glsl)
   return (0);
 }
 
-
-
 int mlx_shaders(glsl_info_t *glsl)
 {
   return (mlx_shaders_pixel(glsl) + mlx_shaders_image(glsl) + mlx_shaders_font(glsl));
