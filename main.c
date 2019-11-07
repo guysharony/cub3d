@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:55:26 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/07 12:00:15 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/11/07 12:31:32 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		ray_trace(t_env *e)
 		x = 0;
 		while (x < W)
 		{
-			cam = c_vector(x + 0, y + 0, 1);
+			cam = c_vector(x + 100, y + 100, 1);
 			ray = c_ray(cam, c_vector(0, 0, 1));
 			tmp[x + y * W] = 50;
 			x++;
@@ -104,7 +104,7 @@ int		main(void)
 		return (EXIT_FAILURE);
 	printf("\n___ Coloring map ___\n");
 	ft_fill(*e, W, H, ft_color(255, 255, 255));
-	ft_event(*e, 0);
+	mlx_key_hook(e->win, ft_key, e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	mlx_loop(e->mlx);
 	free(e);
