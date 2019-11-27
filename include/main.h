@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/26 11:47:06 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/11/27 09:20:23 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ unsigned long	get_texture(int nb, int x, int y);
 t_vector		c_vector(int x, int y, int z);
 t_env			*EnvInit(void);
 int				ft_color(int r, int g, int b);
+int				move(t_env *e);
 int				KeyDown(int key, t_env *e);
 int				KeyUp(int key, t_env *e);
 void			draw(t_env *e);

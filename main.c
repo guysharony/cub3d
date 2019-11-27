@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:27 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/26 11:46:33 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/11/27 09:17:26 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int		main(int ac, char **av)
 		{
 			mlx_hook(e->win, 2, 1L << 0, KeyDown, e);
 			mlx_hook(e->win, 3, 1L << 1, KeyUp, e);
+			mlx_loop_hook(e->mlx, move, e);
 			mlx_loop(e->mlx);
 		}
 		free(e);
