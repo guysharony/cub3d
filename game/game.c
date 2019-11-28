@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/28 13:22:52 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/11/28 13:29:53 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,16 +169,16 @@ void	draw(t_env *e)
 				if (ray.x > 0)
 					clr = ((int *)e->textureD[0])[((int *)e->texture[0])[0] * texX + texY];
 				else
-					clr = ((int *)e->textureD[2])[((int *)e->texture[2])[0] * texX + texY];
+					clr = ((int *)e->textureD[1])[((int *)e->texture[1])[0] * texX + texY];
 			}
-			else
+			else if (sde == 1)
 			{
 				if (ray.y > 0)
-					clr = ((int *)e->textureD[1])[((int *)e->texture[1])[0] * texX + texY];
+					clr = ((int *)e->textureD[2])[((int *)e->texture[2])[0] * texX + texY];
 				else
 					clr = ((int *)e->textureD[3])[((int *)e->texture[3])[0] * texX + texY];
 			}
-			if (sde== 1)
+			if (sde == 1)
 				clr = (clr >> 1) & 8355711;
 			buf[y - drw.x] = clr;
 		}
