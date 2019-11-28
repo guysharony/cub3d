@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/26 11:49:11 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/11/28 12:56:03 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,7 +164,7 @@ void	draw(t_env *e)
 		{
 			int d = y * 256 - H * 128 + lnh * 128;
 			int texY = ((d * texHeight) / lnh) / 256;
-			clr = get_texture(texNum, texY, texX);
+			clr = ((int *)e->textureD[3])[((int *)e->texture[0])[0] * texX + texY];
 			if(sde == 1) 
 				clr = (clr >> 1) & 8355711;
 			buf[y - drw.x] = clr;

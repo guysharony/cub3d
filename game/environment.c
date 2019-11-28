@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 07:31:43 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/26 11:48:47 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/11/28 09:24:03 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ void	CreateContext(t_env *e)
 
 void	EnvToWindow(t_env *e, int x, int y)
 {
+	int		iw;
+	int		ih;
+
 	e->win = mlx_new_window(e->mlx, W, H, "3D World");
 	mlx_put_image_to_window(e->mlx, e->win, e->img, x, y);
 }

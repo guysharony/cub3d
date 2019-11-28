@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/28 08:16:51 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/11/28 11:13:25 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,9 @@ typedef struct		s_env
 	t_setup			setup;
 	t_object		player;
 	t_coo			plane;
-	unsigned long	*texture[8];
+	void			*texture[4];
+	char			*textureD[4];
+	t_setup			textureS[4];
 	t_keys			keys;
 	char			**map;
 	unsigned int	*img_temp;
@@ -90,7 +92,7 @@ t_coo	dlt_dst(t_env *e, t_coo ray);
 t_pos	map_pos(t_env *e);
 t_pos	stp_int(t_coo ray);
 
-unsigned long	get_texture(int nb, int x, int y);
+void			get_texture(t_env *e);
 t_vector		c_vector(int x, int y, int z);
 t_env			*EnvInit(void);
 int				ft_color(int r, int g, int b);
