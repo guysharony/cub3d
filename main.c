@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:27 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/27 09:17:26 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/11/28 08:10:17 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int		main(int ac, char **av)
 		mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 		while (1)
 		{
+			mlx_hook(e->win, 17, 1L << 17, Exit, e);
 			mlx_hook(e->win, 2, 1L << 0, KeyDown, e);
 			mlx_hook(e->win, 3, 1L << 1, KeyUp, e);
 			mlx_loop_hook(e->mlx, move, e);

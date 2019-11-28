@@ -6,11 +6,12 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 07:25:45 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/27 09:21:52 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/11/28 08:17:06 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/main.h"
+#include <stdio.h>
 
 int		move(t_env *e)
 {
@@ -57,6 +58,14 @@ int		move(t_env *e)
 	return (0);
 }
 
+int		Exit(t_env *e)
+{
+	mlx_destroy_image(e->mlx, e->img);
+	mlx_destroy_window(e->mlx, e->win);
+	exit(0);
+	return (0);
+}
+
 int		KeyDown(int key, t_env *e)
 {
 	if (key == 13)
@@ -71,6 +80,8 @@ int		KeyDown(int key, t_env *e)
 		e->keys.t_123 = 1;
 	else if (key == 124)
 		e->keys.t_124 = 1;
+	else if (key == 53)
+		exit(0);
 	return (0);
 }
 
