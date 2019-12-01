@@ -6,13 +6,13 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 07:31:43 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/28 09:24:03 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/12/01 11:53:06 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/main.h"
 
-t_env	*EnvInit(void)
+t_env	*EnvInit(char **av)
 {
 	t_env *e;
 
@@ -28,6 +28,10 @@ t_env	*EnvInit(void)
 	e->player.dir.y = 0.0;
 	e->plane.x = 0;
 	e->plane.y = 0.66;
+	e->map = get_file(av[1]);
+	get_texture(e);
+	draw(e);
+	ContextToEnv(e);
 	return (e);
 }
 

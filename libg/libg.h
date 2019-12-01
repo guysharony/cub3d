@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 09:34:46 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/25 15:56:26 by guysharon        ###   ########.fr       */
+/*   Updated: 2019/12/01 11:54:08 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ char	**get_file(char *name);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
+void	ft_putstr_fd(int fd, char *str);
 
 #endif

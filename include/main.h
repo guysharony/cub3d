@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/28 11:13:25 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/12/01 11:53:26 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ t_pos	stp_int(t_coo ray);
 
 void			get_texture(t_env *e);
 t_vector		c_vector(int x, int y, int z);
-t_env			*EnvInit(void);
+t_env			*EnvInit(char **av);
 int				ft_color(int r, int g, int b);
 int				move(t_env *e);
 int				Exit(t_env *e);
