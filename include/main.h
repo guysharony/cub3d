@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2019/12/01 11:53:26 by guysharon        ###   ########.fr       */
+/*   Updated: 2019/12/09 17:35:58 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 # include <string.h>
 # include <math.h>
 # include "../mlx/mlx.h"
-# include "../libg/libg.h"
+# include "../lib/lib.h"
 # define W 640
 # define H 480
 # define abs(x) (x > 0 ? x : -x)
-# define mapWidth 24
-# define mapHeight 24
+# define mapWidth 14
+# define mapHeight 14
 # define texWidth 64
 # define texHeight 64
 
@@ -82,7 +82,7 @@ typedef struct		s_env
 	char			*textureD[4];
 	t_setup			textureS[4];
 	t_keys			keys;
-	char			**map;
+	t_game			*game;
 	unsigned int	*img_temp;
 }					t_env;
 

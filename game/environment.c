@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 07:31:43 by gsharony          #+#    #+#             */
-/*   Updated: 2019/12/01 11:53:06 by guysharon        ###   ########.fr       */
+/*   Updated: 2019/12/09 17:57:38 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 
 t_env	*EnvInit(char **av)
 {
-	t_env *e;
+	t_env		*e;
+	int			a;
 
+	a = 0;
 	e = (t_env *)malloc(sizeof(t_env));
 	e->mlx = mlx_init();
 	CreateEnv(e);
 	CreateContext(e);
 	ContextToEnv(e);
 	EnvToWindow(e, 0, 0);
-	e->player.pos.x = 22.0;
-	e->player.pos.y = 11.5;
+	e->player.pos.x = 10.0;
+	e->player.pos.y = 10.0;
 	e->player.dir.x = -1.0;
 	e->player.dir.y = 0.0;
 	e->plane.x = 0;
 	e->plane.y = 0.66;
-	e->map = get_file(av[1]);
+	e->game = parsefile(getfile(av[1]));
 	get_texture(e);
 	draw(e);
 	ContextToEnv(e);

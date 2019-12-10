@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2019/11/28 13:29:53 by gsharony         ###   ########.fr       */
+/*   Updated: 2019/12/10 08:34:18 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	draw(t_env *e)
 	int			lnh;
 	int			clr;
 	int			buf[H];
+	char		mapc;
 	double		cam;
 	double		wll;
 	t_coo		ray;
@@ -131,7 +132,8 @@ void	draw(t_env *e)
 				map.y += stp.y;
 				sde = 1;
 			}
-			if (e->map[map.x][map.y] > '0')
+			mapc = e->game->map[map.x][map.y];
+			if (mapc > '0' && mapc != 'N' && mapc != 'S' && mapc != 'E' && mapc !='W')
 				hit = 1;
 		}
 		if (sde == 0)
@@ -147,7 +149,7 @@ void	draw(t_env *e)
 		if (drw.y >= H)
 			drw.y = H - 1;
 
-		int texNum = e->map[map.x][map.y] - 1 - 48;
+		int texNum = e->game->map[map.x][map.y] - 1 - 48;
 		double wallX;
 		if (sde == 0) 
 			wallX = e->player.pos.y + wll * ray.y;

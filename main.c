@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:27 by gsharony          #+#    #+#             */
-/*   Updated: 2019/12/01 11:59:35 by guysharon        ###   ########.fr       */
+/*   Updated: 2019/12/10 09:19:42 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,34 @@ void	get_texture(t_env *e)
 	int		iw;
 	int		ih;
 
-	e->texture[0] = mlx_xpm_file_to_image(e->mlx, "./texture/wood.xpm", &iw, &ih);
+	e->texture[0] = mlx_xpm_file_to_image(e->mlx, e->game->T[0], &iw, &ih);
 	e->textureD[0] = mlx_get_data_addr(
 		e->texture[0],
 		&e->textureS[0].bpp,
 		&e->textureS[0].sl,
 		&e->textureS[0].endian
 	);
-	e->texture[1] = mlx_xpm_file_to_image(e->mlx, "./texture/redbrick.xpm", &iw, &ih);
+	e->texture[1] = mlx_xpm_file_to_image(e->mlx, e->game->T[1], &iw, &ih);
 	e->textureD[1] = mlx_get_data_addr(
 		e->texture[1],
 		&e->textureS[1].bpp,
 		&e->textureS[1].sl,
 		&e->textureS[1].endian
 	);
-	e->texture[2] = mlx_xpm_file_to_image(e->mlx, "./texture/mossy.xpm", &iw, &ih);
+	e->texture[2] = mlx_xpm_file_to_image(e->mlx, e->game->T[2], &iw, &ih);
 	e->textureD[2] = mlx_get_data_addr(
 		e->texture[2],
 		&e->textureS[2].bpp,
 		&e->textureS[2].sl,
 		&e->textureS[2].endian
 	);
-	e->texture[3] = mlx_xpm_file_to_image(e->mlx, "./texture/greystone.xpm", &iw, &ih);
+	e->texture[3] = mlx_xpm_file_to_image(e->mlx, e->game->T[3], &iw, &ih);
 	e->textureD[3] = mlx_get_data_addr(
 		e->texture[3],
 		&e->textureS[3].bpp,
 		&e->textureS[3].sl,
 		&e->textureS[3].endian
 	);
-}
-
-void	ft_error(char *str)
-{
-	ft_putstr_fd(1, "Error\n");
-	ft_putstr_fd(1, str);
-	ft_putstr_fd(1, "\n");
 }
 
 void	game_loop(t_env *e)
@@ -70,10 +63,17 @@ void	game_loop(t_env *e)
 int		main(int ac, char **av)
 {
 	t_env	*e;
+	int		a;
 
 	if (ac > 1)
 	{
+		a = 0;
 		e = EnvInit(av);
+		if (e->game->status != 0)
+		{
+			ft_error("The map must be surounded by walls!");
+			return (EXIT_SUCCESS);
+		}
 		game_loop(e);
 		free(e);
 	}
