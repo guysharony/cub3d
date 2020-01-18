@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 13:00:00 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/16 09:42:40 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/18 18:54:24 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	getplayer(t_game *game)
 			if (ft_includes(game->map->map[a][b], "NSEW"))
 			{
 				game->player->direction = game->map->map[a][b];
-				game->player->posx = b;
-				game->player->posy = a;
+				game->player->posx = a;
+				game->player->posy = b;
 				return ;
 			}
 			b++;
