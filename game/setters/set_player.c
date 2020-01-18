@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 13:45:51 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/17 14:42:32 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/18 19:02:39 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	set_player_north(t_env *e)
 	e->player.dir.x = 1.0;
 	e->player.dir.y = 0.0;
 	e->plane.x = 0.0;
-	e->plane.y = 0.65;
+	e->plane.y = -0.65;
 }
 
 void	set_player_south(t_env *e)

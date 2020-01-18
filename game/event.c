@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 07:25:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/17 14:38:59 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/18 19:01:20 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		move(t_env *e)
 		rotate_left(e, rotspeed);
 	if (e->keys.t_123 == 1)
 		rotate_right(e, rotspeed);
+	printf("[dir_x: %f - dir_y: %f] - [plane_x: %f - plane_y: %f]\n", e->player.dir.x, e->player.dir.y, e->plane.x, e->plane.y);
 	draw(e);
 	contexttoenv(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
