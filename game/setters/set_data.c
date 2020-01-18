@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 13:46:35 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/18 19:16:34 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/18 20:16:19 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 void	set_data(t_env *e, char *filename)
 {
+	int		status;
+
 	e->game = (t_game *)malloc(sizeof(t_game));
-	if (parse(e->game, filename))
+	status = parse(e->game, filename);
+	if (status == -1)
 	{
-		set_resolution(e);
-		set_colors(e);
-		set_player(e);
+		free(e);
+		exit(0);
 	}
-	else
-		exitgame(e);
+	set_resolution(e);
+	set_colors(e);
+	set_player(e);
 }
