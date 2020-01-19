@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/19 14:28:36 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/19 18:09:54 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,22 @@ void	draw(t_env *e)
 	contexttoenv(e);
 	while (x < e->resolution[0])
 	{
+		y = 0;
 		draw = set_draw(e, x);
-		for (y = 0; y < e->resolution[1]; y++)
+		while (y < e->resolution[1])
 		{
-			if (y < (e->resolution[1] / 2))
+			if (y < draw.drw.x)
 				buf[x][y] = ft_color(e->ceiling[0], e->ceiling[1], e->ceiling[2]);
-			else
+			else if (y >= draw.drw.y)
 				buf[x][y] = ft_color(e->floor[0], e->floor[1], e->floor[2]);
-		}
-		for (y = draw.drw.x; y < draw.drw.y; y++)
-		{
-			draw.clr = get_wallc(e, draw, y);
-			buf[x][y] = draw.clr;
+			else
+				buf[x][y] = get_wallc(e, draw, y);
+			y++;
 		}
 		ZBuffer[x] = draw.wll;
 		x++;
 	}
-	double spriteX = 4.0 - e->player.pos.x;
+	/*double spriteX = 4.0 - e->player.pos.x;
 	double spriteY = 4.0 - e->player.pos.y;
 
 	double invDet = 1.0 / (e->plane.x * e->player.dir.y - e->player.dir.x * e->plane.y);
@@ -80,7 +79,7 @@ void	draw(t_env *e)
 				buf[stripe][y] = color;
 			}
 		}
-	}
+	}*/
 	x = 0;
 	while (x < e->resolution[0])
 	{
