@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 14:35:05 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/17 14:35:15 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/19 14:30:34 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	move_right(t_env *e, double movespeed)
 	x2 = (int)(e->player.pos.x);
 	y1 = (int)(e->player.pos.y + e->player.dir.y * movespeed);
 	y2 = (int)(e->player.pos.y);
-	if (ft_includes(e->game->map->map[x1][y2], "0,N,S,E,W"))
+	if (ft_includes(e->game->map->map[x1][y2], "0,2,N,S,E,W"))
 		e->player.pos.x += e->player.dir.y * movespeed;
-	if (ft_includes(e->game->map->map[x2][y1], "0,N,S,E,W"))
+	if (ft_includes(e->game->map->map[x2][y1], "0,2,N,S,E,W"))
 		e->player.pos.y -= e->player.dir.x * movespeed;
 }

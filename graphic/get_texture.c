@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 12:50:26 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/17 12:52:57 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/19 09:02:53 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	get_texture_north(t_env *e)
 		e->texture[0],
 		&e->textureS[0].bpp,
 		&e->textureS[0].sl,
-		&e->textureS[0].endian
-	);
+		&e->textureS[0].endian);
 }
 
 void	get_texture_south(t_env *e)
@@ -36,8 +35,7 @@ void	get_texture_south(t_env *e)
 		e->texture[1],
 		&e->textureS[1].bpp,
 		&e->textureS[1].sl,
-		&e->textureS[1].endian
-	);
+		&e->textureS[1].endian);
 }
 
 void	get_texture_east(t_env *e)
@@ -50,8 +48,7 @@ void	get_texture_east(t_env *e)
 		e->texture[2],
 		&e->textureS[2].bpp,
 		&e->textureS[2].sl,
-		&e->textureS[2].endian
-	);
+		&e->textureS[2].endian);
 }
 
 void	get_texture_west(t_env *e)
@@ -64,6 +61,18 @@ void	get_texture_west(t_env *e)
 		e->texture[3],
 		&e->textureS[3].bpp,
 		&e->textureS[3].sl,
-		&e->textureS[3].endian
-	);
+		&e->textureS[3].endian);
+}
+
+void	get_texture_sprite(t_env *e)
+{
+	int		iw;
+	int		ih;
+
+	e->texture[4] = mlx_xpm_file_to_image(e->mlx, e->game->sprite[1], &iw, &ih);
+	e->textureD[4] = mlx_get_data_addr(
+		e->texture[4],
+		&e->textureS[4].bpp,
+		&e->textureS[4].sl,
+		&e->textureS[4].endian);
 }

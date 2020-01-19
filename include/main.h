@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/18 18:44:08 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/19 10:16:03 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,14 @@ typedef struct		s_env
 	int				resolution[3];
 	int				floor[3];
 	int				ceiling[3];
+	char			mapc;
 	char			*data;
 	t_setup			setup;
 	t_object		player;
 	t_coo			plane;
-	void			*texture[4];
-	char			*textureD[4];
-	t_setup			textureS[4];
+	void			*texture[5];
+	char			*textureD[5];
+	t_setup			textureS[5];
 	t_keys			keys;
 	t_game			*game;
 	unsigned int	*img_temp;
@@ -111,6 +112,7 @@ void			get_texture_north(t_env *e);
 void			get_texture_south(t_env *e);
 void			get_texture_east(t_env *e);
 void			get_texture_west(t_env *e);
+void			get_texture_sprite(t_env *e);
 
 void			set_world(t_env *e);
 void			set_resolution(t_env *e);
@@ -135,6 +137,7 @@ t_coo			get_sld(t_env *e, t_coo ray, t_coo dlt, t_pos map);
 t_draw			set_hit(t_env *e, t_draw draw);
 t_draw			set_draw(t_env *e, int x);
 double			compute_wall(t_env *e, t_draw draw);
+double			compute_sprite(t_env *e, t_draw draw);
 double			get_wallx(t_env *e, t_draw draw);
 int				get_texture_posx(t_env *e, t_draw draw);
 int				get_wallc(t_env *e, t_draw draw, int dy);

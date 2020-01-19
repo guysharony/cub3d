@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:27 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/18 19:20:24 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/19 09:05:26 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	get_texture(t_env *e)
 	get_texture_south(e);
 	get_texture_east(e);
 	get_texture_west(e);
+	get_texture_sprite(e);
 }
 
 void	game_loop(t_env *e)
