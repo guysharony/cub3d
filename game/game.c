@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/20 10:10:16 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/20 10:20:51 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,9 @@ void	draw(t_env *e)
 				{
 					int d = (y) * 256 - e->resolution[1] * 128 + spriteHeight * 128;
 					int texY = ((d * textureh) / spriteHeight) / 256;
-					int color = 750;
-					buf[stripe][y] = color;
+					int color = ((int *)e->textureD[4])[texturew * texY + texX];
+					if ((color & 0x00FFFFFF) != 0)
+						buf[stripe][y] = color;
 				}
 			}
 		}
