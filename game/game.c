@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/19 18:09:54 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/20 10:10:16 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,44 +42,49 @@ void	draw(t_env *e)
 		ZBuffer[x] = draw.wll;
 		x++;
 	}
-	/*double spriteX = 4.0 - e->player.pos.x;
-	double spriteY = 4.0 - e->player.pos.y;
-
-	double invDet = 1.0 / (e->plane.x * e->player.dir.y - e->player.dir.x * e->plane.y);
-	double transformX = invDet * (e->player.dir.y * spriteX - e->player.dir.x * spriteY);
-	double transformY = invDet * (-e->plane.y * spriteX + e->plane.x * spriteY);
-	int spriteScreenX = (int)((e->resolution[0] / 2) * (1 + transformX / transformY));
-
-	int spriteHeight = abs((int)(e->resolution[1] / (transformY)));
-	int drawStartY = -spriteHeight / 2 + e->resolution[1] / 2;
-	if (drawStartY < 0)
-		drawStartY = 0;
-	int drawEndY = spriteHeight / 2 + e->resolution[1] / 2;
-	if (drawEndY >= e->resolution[1])
-		drawEndY = e->resolution[1] - 1;
-
-	int spriteWidth = abs((int)(e->resolution[1] / (transformY)));
-	int drawStartX = -spriteWidth / 2 + spriteScreenX;
-	if (drawStartX < 0)
-		drawStartX = 0;
-	int drawEndX = spriteWidth / 2 + spriteScreenX;
-	if (drawEndX >= e->resolution[0])
-		drawEndX = e->resolution[0] - 1;
-
-	for (int stripe = drawStartX; stripe < drawEndX; stripe++)
+	x = 0;
+	while (x < e->game->sprite->size)
 	{
-		int texX = (int)(256 * (stripe - (-spriteWidth / 2 + spriteScreenX)) * texturew / spriteWidth) / 256;
-		if (transformY > 0 && stripe > 0 && stripe < e->resolution[0] && transformY < ZBuffer[stripe])
+		double spriteX = (e->game->sprite->sprite[x].x - e->player.pos.x) + 0.5;
+		double spriteY = (e->game->sprite->sprite[x].y - e->player.pos.y) + 0.5;
+
+		double invDet = 1.0 / (e->plane.x * e->player.dir.y - e->player.dir.x * e->plane.y);
+		double transformX = invDet * (e->player.dir.y * spriteX - e->player.dir.x * spriteY);
+		double transformY = invDet * (-e->plane.y * spriteX + e->plane.x * spriteY);
+		int spriteScreenX = (int)((e->resolution[0] / 2) * (1 + transformX / transformY));
+
+		int spriteHeight = abs((int)(e->resolution[1] / (transformY)));
+		int drawStartY = -spriteHeight / 2 + e->resolution[1] / 2;
+		if (drawStartY < 0)
+			drawStartY = 0;
+		int drawEndY = spriteHeight / 2 + e->resolution[1] / 2;
+		if (drawEndY >= e->resolution[1])
+			drawEndY = e->resolution[1] - 1;
+
+		int spriteWidth = abs((int)(e->resolution[1] / (transformY)));
+		int drawStartX = -spriteWidth / 2 + spriteScreenX;
+		if (drawStartX < 0)
+			drawStartX = 0;
+		int drawEndX = spriteWidth / 2 + spriteScreenX;
+		if (drawEndX >= e->resolution[0])
+			drawEndX = e->resolution[0] - 1;
+
+		for (int stripe = drawStartX; stripe < drawEndX; stripe++)
 		{
-			for (int y = drawStartY; y < drawEndY; y++)
+			int texX = (int)(256 * (stripe - (-spriteWidth / 2 + spriteScreenX)) * texturew / spriteWidth) / 256;
+			if (transformY > 0 && stripe > 0 && stripe < e->resolution[0] && transformY < ZBuffer[stripe])
 			{
-				int d = (y) * 256 - e->resolution[1] * 128 + spriteHeight * 128;
-				int texY = ((d * textureh) / spriteHeight) / 256;
-				int color = 750;
-				buf[stripe][y] = color;
+				for (int y = drawStartY; y < drawEndY; y++)
+				{
+					int d = (y) * 256 - e->resolution[1] * 128 + spriteHeight * 128;
+					int texY = ((d * textureh) / spriteHeight) / 256;
+					int color = 750;
+					buf[stripe][y] = color;
+				}
 			}
 		}
-	}*/
+		x++;
+	}
 	x = 0;
 	while (x < e->resolution[0])
 	{
