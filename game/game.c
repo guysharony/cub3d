@@ -6,39 +6,36 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/20 10:20:51 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/20 10:41:30 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/main.h"
 
-void	draw(t_env *e)
+int		get_drawc(t_env *e, t_draw draw, int y)
+{
+	if (y < draw.drw.x)
+		return (ft_color(e->ceiling[0], e->ceiling[1], e->ceiling[2]));
+	else if (y >= draw.drw.y)
+		return (ft_color(e->floor[0], e->floor[1], e->floor[2]));
+	else
+		return (get_wallc(e, draw, y));
+}
+
+void	mkimage(t_env *e, t_draw draw)
 {
 	int			x;
 	int			y;
 	int			buf[e->resolution[0]][e->resolution[1]];
 	double		ZBuffer[e->resolution[0]];
-	t_draw		draw;
 
 	x = 0;
-	createenv(e);
-	free(e->img_temp);
-	createcontext(e);
-	contexttoenv(e);
 	while (x < e->resolution[0])
 	{
 		y = 0;
 		draw = set_draw(e, x);
-		while (y < e->resolution[1])
-		{
-			if (y < draw.drw.x)
-				buf[x][y] = ft_color(e->ceiling[0], e->ceiling[1], e->ceiling[2]);
-			else if (y >= draw.drw.y)
-				buf[x][y] = ft_color(e->floor[0], e->floor[1], e->floor[2]);
-			else
-				buf[x][y] = get_wallc(e, draw, y);
-			y++;
-		}
+		while (y++ < e->resolution[1])
+			buf[x][y] = get_drawc(e, draw, y);
 		ZBuffer[x] = draw.wll;
 		x++;
 	}
@@ -92,4 +89,17 @@ void	draw(t_env *e)
 		drawlinebuffer(e, x, 0, x, e->resolution[1] - 1, buf[x]);
 		x++;
 	}
+}
+
+void	draw(t_env *e)
+{
+	int			x;
+	int			y;
+	t_draw		draw;
+
+	createenv(e);
+	free(e->img_temp);
+	createcontext(e);
+	contexttoenv(e);
+	mkimage(e, draw);
 }
