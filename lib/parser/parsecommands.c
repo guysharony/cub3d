@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 12:59:54 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/15 13:02:47 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/20 09:48:17 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int		isdefined(t_game *game, char **data)
 	if (res == 4)
 		return (game->wall->east != NULL);
 	if (res == 5)
-		return (game->sprite != NULL);
+		return (game->wall->sprite != NULL);
 	if (res == 6)
 		return (game->floor != NULL);
 	if (res == 7)
@@ -56,7 +56,7 @@ static int		iscommand(t_game **game, char **data)
 		else if (res == 4)
 			(*game)->wall->east = data;
 		else if (res == 5)
-			(*game)->sprite = data;
+			(*game)->wall->sprite = data;
 		else if (res == 6)
 			(*game)->floor = data;
 		else if (res == 7)
@@ -80,7 +80,7 @@ static int		ismissing(t_game *game)
 		a += ft_error("Not defined before map!", "EA");
 	if (game->wall->west == NULL)
 		a += ft_error("Not defined before map!", "WE");
-	if (game->sprite == NULL)
+	if (game->wall->sprite == NULL)
 		a += ft_error("Not defined before map!", "S");
 	if (game->floor == NULL)
 		a += ft_error("Not defined before map!", "F");
@@ -101,7 +101,7 @@ static int		iscomplete(t_game *game)
 		return (0);
 	if (game->wall->west == NULL)
 		return (0);
-	if (game->sprite == NULL)
+	if (game->wall->sprite == NULL)
 		return (0);
 	if (game->floor == NULL)
 		return (0);

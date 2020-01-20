@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 10:30:27 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/18 20:11:27 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/20 09:50:09 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ void	ft_clean(t_game *game)
 	clean(game->wall->south);
 	clean(game->wall->east);
 	clean(game->wall->west);
-	clean(game->sprite);
+	clean(game->wall->sprite);
 	clean(game->ceiling);
 	clean(game->floor);
 	free(game->player);
+	free(game->sprite);
 	clean(game->map->map);
 	free(game->map);
 }
@@ -34,6 +35,7 @@ int		parse(t_game *game, char *filename)
 	game->wall = (t_texture *)malloc(sizeof(t_texture));
 	game->map = (t_map *)malloc(sizeof(t_map));
 	game->player = (t_player *)malloc(sizeof(t_player));
+	game->sprite = (t_sprite *)malloc(sizeof(t_sprite));
 	error = parsecommands(game, filename);
 	if (error == -1)
 	{

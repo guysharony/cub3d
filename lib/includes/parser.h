@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 12:46:09 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/16 10:33:36 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/20 09:50:26 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct		s_texture
 	char			**south;
 	char			**east;
 	char			**west;
+	char			**sprite;
 }					t_texture;
 
 typedef struct		s_player
@@ -29,6 +30,18 @@ typedef struct		s_player
 	int				posx;
 	int				posy;
 }					t_player;
+
+typedef struct		s_pos
+{
+	int				x;
+	int				y;
+}					t_pos;
+
+typedef struct		s_sprite
+{
+	int				size;
+	t_pos			*sprite;
+}					t_sprite;
 
 typedef struct		s_map
 {
@@ -39,10 +52,10 @@ typedef struct		s_map
 typedef struct		s_game
 {
 	char			**resolution;
-	char			**sprite;
 	char			**ceiling;
 	char			**floor;
 	t_player		*player;
+	t_sprite		*sprite;
 	t_texture		*wall;
 	t_map			*map;
 }					t_game;

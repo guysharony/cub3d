@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/19 10:16:03 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/20 09:46:36 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,6 @@ typedef struct		s_vector
 	int				y;
 	int				z;
 }					t_vector;
-
-typedef struct		s_pos
-{
-	int				x;
-	int				y;
-}					t_pos;
 
 typedef struct		s_coo
 {

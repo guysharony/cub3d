@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 13:00:00 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/18 18:54:24 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/20 09:51:48 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	getplayer(t_game *game)
 	int		b;
 
 	a = 0;
+	game->sprite->sprite = (t_pos *)malloc(sizeof(t_pos) * (game->sprite->size));
 	while (game->map->map[a] != NULL)
 	{
 		b = 0;
@@ -64,6 +65,51 @@ void	getplayer(t_game *game)
 	}
 }
 
+void	getsprite(t_game *game)
+{
+	int		a;
+	int		b;
+	int		c;
+
+	a = 0;
+	c = 0;
+	while (game->map->map[a] != NULL)
+	{
+		b = 0;
+		while (game->map->map[a][b])
+		{
+			if (game->map->map[a][b] == '2')
+			{
+				game->sprite->sprite[c].x = a;
+				game->sprite->sprite[c].y = b;
+				c++;
+			}
+			b++;
+		}
+		a++;
+	}
+}
+
+void	getnbsprite(t_game *game)
+{
+	int		a;
+	int		b;
+
+	a = 0;
+	game->sprite->size = 0;
+	while (game->map->map[a] != NULL)
+	{
+		b = 0;
+		while (game->map->map[a][b])
+		{
+			if (game->map->map[a][b] == '2')
+				game->sprite->size++;
+			b++;
+		}
+		a++;
+	}
+}
+
 int		parsemap(t_game *game, char *map)
 {
 	int		file;
@@ -74,6 +120,8 @@ int		parsemap(t_game *game, char *map)
 		file = open(map, O_RDONLY);
 		getmap(game, file);
 		getplayer(game);
+		getnbsprite(game);
+		getsprite(game);
 		return (check(game, file));
 	}
 	return (-1);

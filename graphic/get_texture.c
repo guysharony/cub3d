@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 12:50:26 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/19 09:02:53 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/20 09:46:59 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	get_texture_sprite(t_env *e)
 	int		iw;
 	int		ih;
 
-	e->texture[4] = mlx_xpm_file_to_image(e->mlx, e->game->sprite[1], &iw, &ih);
+	e->texture[4] = mlx_xpm_file_to_image(e->mlx, e->game->wall->sprite[1], &iw, &ih);
 	e->textureD[4] = mlx_get_data_addr(
 		e->texture[4],
 		&e->textureS[4].bpp,
