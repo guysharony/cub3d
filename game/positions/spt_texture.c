@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_texture_posx.c                                 :+:      :+:    :+:   */
+/*   spt_texture.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/21 12:39:08 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/21 12:39:13 by gsharony         ###   ########.fr       */
+/*   Created: 2020/01/21 13:36:33 by gsharony          #+#    #+#             */
+/*   Updated: 2020/01/21 13:48:50 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/main.h"
 
-int		get_texture_posx(t_env *e, t_draw_wall draw)
+t_pos	spt_texture(t_env *e, t_draw_sprite draw, int i, int d)
 {
-	int			texturex;
-	double		wallx;
+	t_pos texture;
 
-	wallx = get_wallx(e, draw);
-	texturex = (int)(wallx * (double)(texturew));
-	if (draw.sde == 0 && draw.ray.x > 0)
-		texturex = texturew - texturex - 1;
-	if (draw.sde == 1 && draw.ray.y < 0)
-		texturex = texturew - texturex - 1;
-	return (texturex);
+	texture.x = (int)(256 * (i - (-draw.size.x / 2 + draw.screenx)) *
+			texturew / draw.size.x) / 256;
+	texture.y = ((d * textureh) / draw.size.y) / 256;
+	return (texture);
 }

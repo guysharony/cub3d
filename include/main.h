@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/20 09:46:36 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/21 13:49:15 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include "../mlx/mlx.h"
 # include "../lib/lib.h"
 # define abs(x) (x > 0 ? x : -x)
+# define screenwidth 700
+# define screenheight 700
 # define texturew 64
 # define textureh 64
 
@@ -59,7 +61,7 @@ typedef struct		s_keys
 	int				t_124;
 }					t_keys;
 
-typedef struct		s_draw
+typedef struct		s_draw_wall
 {
 	int				sde;
 	int				lnh;
@@ -72,7 +74,18 @@ typedef struct		s_draw
 	t_pos			drw;
 	t_pos			map;
 	t_pos			stp;
-}					t_draw;
+}					t_draw_wall;
+
+typedef struct		s_draw_sprite
+{
+	int				screenx;
+	double			invdet;
+	t_coo			sprite;
+	t_coo			transform;
+	t_pos			size;
+	t_pos			drawx;
+	t_pos			drawy;
+}					t_draw_sprite;
 
 typedef struct		s_env
 {
@@ -128,13 +141,22 @@ t_coo			sld_int(t_env *e, t_pos map, t_coo dlt, t_coo ray);
 t_pos			stp_int(t_coo ray);
 t_pos			get_stp(t_coo ray);
 t_coo			get_sld(t_env *e, t_coo ray, t_coo dlt, t_pos map);
-t_draw			set_hit(t_env *e, t_draw draw);
-t_draw			set_draw(t_env *e, int x);
-double			compute_wall(t_env *e, t_draw draw);
-double			compute_sprite(t_env *e, t_draw draw);
-double			get_wallx(t_env *e, t_draw draw);
-int				get_texture_posx(t_env *e, t_draw draw);
-int				get_wallc(t_env *e, t_draw draw, int dy);
+t_draw_wall		set_hit(t_env *e, t_draw_wall draw);
+void			set_draw_wall(t_env *e, int x, int ***buf, double **zbuf);
+void			set_draw_sprt(t_env *e, int x, int ***buf, double **zbuf);
+double			compute_wall(t_env *e, t_draw_wall draw);
+double			compute_sprite(t_env *e, t_draw_wall draw);
+double			get_wallx(t_env *e, t_draw_wall draw);
+int				get_texture_posx(t_env *e, t_draw_wall draw);
+int				get_wallc(t_env *e, t_draw_wall draw, int dy);
+t_coo			spt_transform(t_env *e, t_draw_sprite draw);
+t_pos			spt_size(t_env *e, t_draw_sprite draw);
+t_coo			spt_pos(t_env *e, int x);
+t_pos			spt_texture(t_env *e, t_draw_sprite draw, int i, int d);
+t_pos			spt_draw_x(t_env *e, t_draw_sprite draw);
+t_pos			spt_draw_y(t_env *e, t_draw_sprite draw);
+int				spt_screenx(t_env *e, t_draw_sprite draw);
+double			spt_invdet(t_env *e, t_draw_sprite draw);
 
 t_vector		c_vector(int x, int y, int z);
 t_env			*envinit(char **av);

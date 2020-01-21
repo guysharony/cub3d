@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_hit.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/21 12:36:52 by gsharony          #+#    #+#             */
+/*   Updated: 2020/01/21 12:40:02 by gsharony         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/main.h"
 
-t_draw	set_hit(t_env *e, t_draw draw)
+t_draw_wall		set_hit(t_env *e, t_draw_wall draw)
 {
 	int		hit;
 	int		mapc;

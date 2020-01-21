@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_wallc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/21 12:39:25 by gsharony          #+#    #+#             */
+/*   Updated: 2020/01/21 12:39:29 by gsharony         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/main.h"
 
-int		get_wallc(t_env *e, t_draw draw, int dy)
+int		get_wallc(t_env *e, t_draw_wall draw, int dy)
 {
 	int		color;
 	int		x;

@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_texture_posx.c                                 :+:      :+:    :+:   */
+/*   spt_transform.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/21 12:39:08 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/21 12:39:13 by gsharony         ###   ########.fr       */
+/*   Created: 2020/01/21 12:48:36 by gsharony          #+#    #+#             */
+/*   Updated: 2020/01/21 13:47:50 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/main.h"
 
-int		get_texture_posx(t_env *e, t_draw_wall draw)
+t_coo	spt_transform(t_env *e, t_draw_sprite draw)
 {
-	int			texturex;
-	double		wallx;
+	t_coo	transform;
 
-	wallx = get_wallx(e, draw);
-	texturex = (int)(wallx * (double)(texturew));
-	if (draw.sde == 0 && draw.ray.x > 0)
-		texturex = texturew - texturex - 1;
-	if (draw.sde == 1 && draw.ray.y < 0)
-		texturex = texturew - texturex - 1;
-	return (texturex);
+	transform.x = draw.invdet * (e->player.dir.y * draw.sprite.x -
+			e->player.dir.x * draw.sprite.y);
+	transform.y = draw.invdet * (-e->plane.y * draw.sprite.x +
+			e->plane.x * draw.sprite.y);
+	return (transform);
 }

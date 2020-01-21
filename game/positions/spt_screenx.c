@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_texture_posx.c                                 :+:      :+:    :+:   */
+/*   spt_screenx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/21 12:39:08 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/21 12:39:13 by gsharony         ###   ########.fr       */
+/*   Created: 2020/01/21 13:42:22 by gsharony          #+#    #+#             */
+/*   Updated: 2020/01/21 13:45:27 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/main.h"
 
-int		get_texture_posx(t_env *e, t_draw_wall draw)
+int		spt_screenx(t_env *e, t_draw_sprite draw)
 {
-	int			texturex;
-	double		wallx;
+	int		screenx;
 
-	wallx = get_wallx(e, draw);
-	texturex = (int)(wallx * (double)(texturew));
-	if (draw.sde == 0 && draw.ray.x > 0)
-		texturex = texturew - texturex - 1;
-	if (draw.sde == 1 && draw.ray.y < 0)
-		texturex = texturew - texturex - 1;
-	return (texturex);
+	screenx = (int)((e->resolution[0] / 2) *
+			(1 + draw.transform.x / draw.transform.y));
+	return (screenx);
 }

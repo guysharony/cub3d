@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_texture_posx.c                                 :+:      :+:    :+:   */
+/*   spt_size.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/21 12:39:08 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/21 12:39:13 by gsharony         ###   ########.fr       */
+/*   Created: 2020/01/21 12:51:14 by gsharony          #+#    #+#             */
+/*   Updated: 2020/01/21 13:08:38 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/main.h"
 
-int		get_texture_posx(t_env *e, t_draw_wall draw)
+t_pos	spt_size(t_env *e, t_draw_sprite draw)
 {
-	int			texturex;
-	double		wallx;
+	t_pos	size;
 
-	wallx = get_wallx(e, draw);
-	texturex = (int)(wallx * (double)(texturew));
-	if (draw.sde == 0 && draw.ray.x > 0)
-		texturex = texturew - texturex - 1;
-	if (draw.sde == 1 && draw.ray.y < 0)
-		texturex = texturew - texturex - 1;
-	return (texturex);
+	size.y = abs((int)(e->resolution[1] / (draw.transform.y)));
+	size.x = abs((int)(e->resolution[1] / (draw.transform.y)));
+	return (size);
 }
