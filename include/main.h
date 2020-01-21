@@ -6,24 +6,20 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/21 14:23:52 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/21 14:44:46 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAIN_H
 # define MAIN_H
+# define TEXTUREW 64
+# define TEXTUREH 64
 
 # include <stdlib.h>
-# include <stdio.h>
 # include <string.h>
 # include <math.h>
 # include "../mlx/mlx.h"
 # include "../lib/lib.h"
-# define abs(x) (x > 0 ? x : -x)
-# define screenwidth 700
-# define screenheight 700
-# define texturew 64
-# define textureh 64
 
 typedef struct		s_vector
 {
@@ -101,75 +97,75 @@ typedef struct		s_env
 	t_object		player;
 	t_coo			plane;
 	void			*texture[5];
-	char			*textureD[5];
-	t_setup			textureS[5];
+	char			*textured[5];
+	t_setup			textures[5];
 	t_keys			keys;
 	t_game			*game;
 	unsigned int	*img_temp;
 }					t_env;
 
-t_coo			sld_int(t_env *e, t_pos map, t_coo dlt, t_coo ray);
-t_coo			ray_dir(t_env *e, double cameraX);
-t_coo			dlt_dst(t_env *e, t_coo ray);
-t_pos			map_pos(t_env *e);
-t_pos			stp_int(t_coo ray);
+t_coo				sld_int(t_env *e, t_pos map, t_coo dlt, t_coo ray);
+t_coo				ray_dir(t_env *e, double camerax);
+t_coo				dlt_dst(t_env *e, t_coo ray);
+t_pos				map_pos(t_env *e);
+t_pos				stp_int(t_coo ray);
 
-void			get_texture(t_env *e);
-void			get_texture_north(t_env *e);
-void			get_texture_south(t_env *e);
-void			get_texture_east(t_env *e);
-void			get_texture_west(t_env *e);
-void			get_texture_sprite(t_env *e);
+void				get_texture(t_env *e);
+void				get_texture_north(t_env *e);
+void				get_texture_south(t_env *e);
+void				get_texture_east(t_env *e);
+void				get_texture_west(t_env *e);
+void				get_texture_sprite(t_env *e);
 
-void			set_world(t_env *e);
-void			set_resolution(t_env *e);
-void			set_player(t_env *e);
-void			set_data(t_env *e, char *filename);
-void			set_colors(t_env *e);
+void				set_world(t_env *e);
+void				set_resolution(t_env *e);
+void				set_player(t_env *e);
+void				set_data(t_env *e, char *filename);
+void				set_colors(t_env *e);
 
-void			move_forward(t_env *e, double movespeed);
-void			move_backward(t_env *e, double movespeed);
-void			move_left(t_env *e, double movespeed);
-void			move_right(t_env *e, double movespeed);
-void			rotate_left(t_env *e, double rotspeed);
-void			rotate_right(t_env *e, double rotspeed);
+void				move_forward(t_env *e, double movespeed);
+void				move_backward(t_env *e, double movespeed);
+void				move_left(t_env *e, double movespeed);
+void				move_right(t_env *e, double movespeed);
+void				rotate_left(t_env *e, double rotspeed);
+void				rotate_right(t_env *e, double rotspeed);
 
-t_coo			dlt_dst(t_env *e, t_coo ray);
-t_pos			map_pos(t_env *e);
-t_coo			ray_dir(t_env *e, double camerax);
-t_coo			sld_int(t_env *e, t_pos map, t_coo dlt, t_coo ray);
-t_pos			stp_int(t_coo ray);
-t_pos			get_stp(t_coo ray);
-t_coo			get_sld(t_env *e, t_coo ray, t_coo dlt, t_pos map);
-t_draw_wall		set_hit(t_env *e, t_draw_wall draw);
-void			set_draw_wall(t_env *e, int x, int ***buf, double **zbuf);
-void			set_draw_sprt(t_env *e, int x, int ***buf, double **zbuf);
-double			compute_wall(t_env *e, t_draw_wall draw);
-double			compute_sprite(t_env *e, t_draw_wall draw);
-double			get_wallx(t_env *e, t_draw_wall draw);
-int				get_texture_posx(t_env *e, t_draw_wall draw);
-int				get_wallc(t_env *e, t_draw_wall draw, int dy);
-t_coo			spt_transform(t_env *e, t_draw_sprite draw);
-t_pos			spt_size(t_env *e, t_draw_sprite draw);
-t_coo			spt_pos(t_env *e, int x);
-t_pos			spt_texture(t_env *e, t_draw_sprite draw, int i, int d);
-t_pos			spt_draw_x(t_env *e, t_draw_sprite draw);
-t_pos			spt_draw_y(t_env *e, t_draw_sprite draw);
-int				spt_screenx(t_env *e, t_draw_sprite draw);
-double			spt_invdet(t_env *e, t_draw_sprite draw);
+t_coo				dlt_dst(t_env *e, t_coo ray);
+t_pos				map_pos(t_env *e);
+t_coo				ray_dir(t_env *e, double camerax);
+t_coo				sld_int(t_env *e, t_pos map, t_coo dlt, t_coo ray);
+t_pos				stp_int(t_coo ray);
+t_pos				get_stp(t_coo ray);
+t_coo				get_sld(t_env *e, t_coo ray, t_coo dlt, t_pos map);
+t_draw_wall			set_hit(t_env *e, t_draw_wall draw);
+void				set_draw_wall(t_env *e, int x, int ***buf, double **zbuf);
+void				set_draw_sprt(t_env *e, int x, int ***buf, double **zbuf);
+double				compute_wall(t_env *e, t_draw_wall draw);
+double				compute_sprite(t_env *e, t_draw_wall draw);
+double				get_wallx(t_env *e, t_draw_wall draw);
+int					get_texture_posx(t_env *e, t_draw_wall draw);
+int					get_wallc(t_env *e, t_draw_wall draw, int dy);
+t_coo				spt_transform(t_env *e, t_draw_sprite draw);
+t_pos				spt_size(t_env *e, t_draw_sprite draw);
+t_coo				spt_pos(t_env *e, int x);
+t_pos				spt_texture(t_env *e, t_draw_sprite draw, int i, int d);
+t_pos				spt_draw_x(t_env *e, t_draw_sprite draw);
+t_pos				spt_draw_y(t_env *e, t_draw_sprite draw);
+int					spt_screenx(t_env *e, t_draw_sprite draw);
+double				spt_invdet(t_env *e, t_draw_sprite draw);
 
-t_vector		c_vector(int x, int y, int z);
-t_env			*envinit(char **av);
-int				ft_color(int r, int g, int b);
-int				move(t_env *e);
-int				exitgame(t_env *e);
-int				keydown(int key, t_env *e);
-int				keyup(int key, t_env *e);
-void			draw(t_env *e);
-void			createenv(t_env *e);
-void			createcontext(t_env *e);
-void			drawlinebuffer(t_env *e, int x1, int bff[]);
-void			contexttoenv(t_env *e);
-void			envtowindow(t_env *e, int x, int y);
+t_vector			c_vector(int x, int y, int z);
+t_env				*envinit(char **av);
+int					ft_color(int r, int g, int b);
+int					move(t_env *e);
+int					exitgame(t_env *e);
+int					keydown(int key, t_env *e);
+int					keyup(int key, t_env *e);
+void				draw(t_env *e);
+void				createenv(t_env *e);
+void				createcontext(t_env *e);
+void				drawlinebuffer(t_env *e, int x1, int bff[]);
+void				contexttoenv(t_env *e);
+void				envtowindow(t_env *e, int x, int y);
 
 #endif

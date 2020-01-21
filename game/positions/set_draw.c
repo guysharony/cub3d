@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 11:55:58 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/21 13:49:51 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/21 14:52:32 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	get_spritec(t_env *e, t_draw_sprite draw, int ***buf, double **zbuf)
 			{
 				d = (b.y) * 256 - e->resolution[1] * 128 + draw.size.y * 128;
 				t = spt_texture(e, draw, b.x, d);
-				color = ((int *)e->textureD[4])[texturew * t.y + t.x];
+				color = ((int *)e->textured[4])[TEXTUREW * t.y + t.x];
 				if ((color & 0x00FFFFFF) != 0)
 					(*buf)[b.x][b.y] = color;
 			}

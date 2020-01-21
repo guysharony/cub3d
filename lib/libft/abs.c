@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dlt_dst.c                                          :+:      :+:    :+:   */
+/*   abs.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/17 14:46:47 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/21 14:51:06 by gsharony         ###   ########.fr       */
+/*   Created: 2020/01/21 14:45:44 by gsharony          #+#    #+#             */
+/*   Updated: 2020/01/21 14:46:36 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/main.h"
+#include "../includes/libft.h"
 
-t_coo	dlt_dst(t_env *e, t_coo ray)
+int		abs(int x)
 {
-	t_coo	dlt;
-
-	dlt.x = fabs(1 / ray.x);
-	dlt.y = fabs(1 / ray.y);
-	return (dlt);
+	if (x < 0)
+		return (-x);
+	return (x);
 }

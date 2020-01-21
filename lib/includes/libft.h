@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 12:44:33 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/16 09:38:47 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/21 14:47:01 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ int			ispresent(char *data, char *commands);
 int			ft_isdigit(int c);
 int			ft_atoi(const char *str);
 int			ft_lstlength(char **lst);
+
+int			abs(int x);
 
 #endif
