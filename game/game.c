@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/21 13:15:16 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/21 14:23:34 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	mkimage(t_env *e)
 		set_draw_sprt(e, x, &buf, &zbuf);
 	x = -1;
 	while (++x < e->resolution[0])
-		drawlinebuffer(e, x, 0, x, e->resolution[1] - 1, buf[x]);
+		drawlinebuffer(e, x, buf[x]);
 }
 
 void	draw(t_env *e)

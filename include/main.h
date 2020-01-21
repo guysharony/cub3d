@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/21 13:49:15 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/21 14:23:52 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,8 +168,7 @@ int				keyup(int key, t_env *e);
 void			draw(t_env *e);
 void			createenv(t_env *e);
 void			createcontext(t_env *e);
-void			drawline(t_env *e, int x1, int y1, int x2, int y2, int color);
-void			drawlinebuffer(t_env *e, int x1, int y1, int x2, int y2, int bff[]);
+void			drawlinebuffer(t_env *e, int x1, int bff[]);
 void			contexttoenv(t_env *e);
 void			envtowindow(t_env *e, int x, int y);
 
