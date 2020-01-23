@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/23 13:26:48 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/23 18:13:54 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	draw(t_env *e)
 	int			x;
 	int			y;
 
+	mlx_destroy_image(e->mlx, e->img);
 	createenv(e);
 	free(e->img_temp);
 	createcontext(e);

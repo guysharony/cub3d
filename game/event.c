@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 07:25:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/23 13:34:54 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/23 18:23:33 by guysharon        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,20 @@ int		exitgame(t_env *e)
 {
 	mlx_destroy_image(e->mlx, e->img);
 	mlx_destroy_window(e->mlx, e->win);
+	free(e->texture[0]);
+	free(e->texture[1]);
+	free(e->texture[2]);
+	free(e->texture[3]);
+	free(e->texture[4]);
+	free(e->textured[0]);
+	free(e->textured[1]);
+	free(e->textured[2]);
+	free(e->textured[3]);
+	free(e->textured[4]);
+	ft_clean(e->game);
+	free(e->game);
+	free(e->img_temp);
+	free(e);
 	exit(0);
 	return (0);
 }
