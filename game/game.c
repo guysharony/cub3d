@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/21 14:23:34 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/23 09:10:35 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,19 @@ double	*malloc_zbuf(int x)
 
 	zbuf = malloc(sizeof(zbuf) * x);
 	return (zbuf);
+}
+
+void	clear_buf(int ***buf, t_env *e)
+{
+	int		i;
+
+	i = 0;
+	while (i < e->resolution[0])
+	{
+		free((*buf)[i]);
+		i++;
+	}
+	free((*buf));
 }
 
 int		**malloc_buf(int x, int y)
@@ -53,6 +66,8 @@ void	mkimage(t_env *e)
 	x = -1;
 	while (++x < e->resolution[0])
 		drawlinebuffer(e, x, buf[x]);
+	free(zbuf);
+	clear_buf(&buf, e);
 }
 
 void	draw(t_env *e)
