@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/21 14:44:46 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/23 08:54:48 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <math.h>
-# include "../mlx/mlx.h"
+# include <mlx.h>
 # include "../lib/lib.h"
 
 typedef struct		s_vector
