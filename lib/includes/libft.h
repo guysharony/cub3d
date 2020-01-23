@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 12:44:33 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/21 14:47:01 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/23 10:13:39 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,22 @@
 # include "../lib.h"
 
 # define BUFFER_SIZE 32
+
+typedef struct			s_bitmap
+{
+	unsigned char		header[54];
+	unsigned int		pi;
+	unsigned int		pa;
+	int					width;
+	int					height;
+}						t_bitmap;
+
+typedef struct			s_data
+{
+	unsigned char		b;
+	unsigned char		g;
+	unsigned char		r;
+}						t_data;
 
 void		ft_putstr_fd(int fd, char *str);
 void		ft_putnbr_fd(int fd, int nb);
@@ -68,5 +84,8 @@ int			ft_atoi(const char *str);
 int			ft_lstlength(char **lst);
 
 int			abs(int x);
+int			bitmap(char *fn, int w, int h, int **data);
+int			**malloc_buf(int x, int y);
+t_data		**malloc_buf_data(int x, int y);
 
 #endif

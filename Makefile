@@ -6,7 +6,7 @@
 #    By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 07:41:52 by gsharony          #+#    #+#              #
-#    Updated: 2020/01/23 08:58:52 by gsharony         ###   ########.fr        #
+#    Updated: 2020/01/23 10:14:20 by gsharony         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ PARSER		= ${LP}parse.c ${LP}parsecommands.c ${LP}parsemap.c \
 LIBFT		= ${LL}clean.c ${LL}ft_atoi.c ${LL}ft_bzero.c ${LL}ft_calloc.c ${LL}ft_error.c ${LL}ft_files.c ${LL}ft_includes.c ${LL}ft_isdigit.c ${LL}ft_isnumber.c \
 			  ${LL}ft_ispresent.c ${LL}ft_jumpline.c ${LL}ft_memset.c ${LL}ft_parsecolor.c ${LL}ft_putchar.c ${LL}ft_putchar_fd.c ${LL}ft_putnbr.c ${LL}ft_putnbr_fd.c \
 			  ${LL}ft_putstr.c ${LL}ft_putstr_fd.c ${LL}ft_split.c ${LL}ft_strchr.c ${LL}ft_strcpy.c ${LL}ft_strdup.c ${LL}ft_strjoin.c ${LL}ft_strlen.c ${LL}ft_strmcpy.c \
-			  ${LL}ft_strncmp.c ${LL}ft_strrchr.c ${LL}ft_substr.c ${LL}get_next_line.c
+			  ${LL}ft_strncmp.c ${LL}ft_strrchr.c ${LL}ft_substr.c ${LL}get_next_line.c ${LL}bitmap.c ${LL}buf.c
 
 LIB			= ${LIBFT} ${PARSER}
 
