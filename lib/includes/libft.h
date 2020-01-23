@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 12:44:33 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/23 10:13:39 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/23 11:10:38 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ int			abs(int x);
 int			bitmap(char *fn, int w, int h, int **data);
 int			**malloc_buf(int x, int y);
 t_data		**malloc_buf_data(int x, int y);
+void		clear_buf_data(t_data ***buf, int h);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 09:16:14 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/23 10:56:35 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/23 11:17:50 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ int			bitmap(char *fn, int w, int h, int **data)
 		}
 	}
 	make_bitmap(fn, w, h, b);
+	clear_buf_data(&b, w);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 07:25:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/18 20:15:41 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/23 13:34:54 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ int		exitgame(t_env *e)
 {
 	mlx_destroy_image(e->mlx, e->img);
 	mlx_destroy_window(e->mlx, e->win);
-	free(e);
 	exit(0);
 	return (0);
 }

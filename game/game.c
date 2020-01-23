@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/23 10:51:17 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/23 13:26:48 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void	mkimage(t_env *e)
 	x = -1;
 	while (++x < e->resolution[0])
 		drawlinebuffer(e, x, buf[x]);
-	bitmap("test.bmp", e->resolution[0], e->resolution[1], buf);
+	/*bitmap("test.bmp", e->resolution[0], e->resolution[1], buf);*/
 	free(zbuf);
 	clear_buf(&buf, e);
-	exit(0);
+	/*exitgame(e);*/
 }
 
 void	draw(t_env *e)

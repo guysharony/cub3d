@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 10:30:27 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/20 09:50:09 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/23 13:03:42 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ void	ft_clean(t_game *game)
 	clean(game->wall->east);
 	clean(game->wall->west);
 	clean(game->wall->sprite);
+	free(game->wall);
 	clean(game->ceiling);
 	clean(game->floor);
 	free(game->player);
+	free(game->sprite->sprite);
 	free(game->sprite);
 	clean(game->map->map);
 	free(game->map);
