@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 11:55:58 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/24 10:21:13 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 10:27:33 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	set_draw_sprt(t_env *e, int x, int ***buf, double **zbuf)
 	t_draw_sprite draw;
 
 	draw.sprite = spt_pos(e, x);
-	draw.invdet = spt_invdet(e, draw);
+	draw.invdet = spt_invdet(e);
 	draw.transform = spt_transform(e, draw);
 	draw.screenx = spt_screenx(e, draw);
 	draw.size = spt_size(e, draw);
