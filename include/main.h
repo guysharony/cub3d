@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/24 08:14:55 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 09:00:05 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void				get_texture_east(t_env *e);
 void				get_texture_west(t_env *e);
 void				get_texture_sprite(t_env *e);
 
-void				set_world(t_env *e);
+void				set_world(t_env *e, int save);
 void				set_resolution(t_env *e);
 void				set_player(t_env *e);
 void				set_data(t_env *e, char *filename);
@@ -154,13 +154,13 @@ int					spt_screenx(t_env *e, t_draw_sprite draw);
 double				spt_invdet(t_env *e, t_draw_sprite draw);
 
 t_vector			c_vector(int x, int y, int z);
-t_env				*envinit(char **av);
+t_env				*envinit(char **av, int save);
 int					ft_color(int r, int g, int b);
 int					move(t_env *e);
 int					exitgame(t_env *e);
 int					keydown(int key, t_env *e);
 int					keyup(int key, t_env *e);
-void				draw(t_env *e);
+void				draw(t_env *e, int save);
 void				createenv(t_env *e);
 void				createcontext(t_env *e);
 void				drawlinebuffer(t_env *e, int x1, int bff[]);

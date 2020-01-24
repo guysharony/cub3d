@@ -6,19 +6,19 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 07:31:43 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/23 11:58:41 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 08:54:45 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/main.h"
 
-t_env	*envinit(char **av)
+t_env	*envinit(char **av, int save)
 {
 	t_env		*e;
 
 	e = (t_env *)malloc(sizeof(t_env));
 	set_data(e, av[1]);
-	set_world(e);
+	set_world(e, save);
 	return (e);
 }
 

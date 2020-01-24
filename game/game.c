@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/23 18:13:54 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/24 09:02:16 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	clear_buf(int ***buf, t_env *e)
 	free((*buf));
 }
 
-void	mkimage(t_env *e)
+void	mkimage(t_env *e, int save)
 {
 	int			x;
 	int			y;
@@ -51,13 +51,15 @@ void	mkimage(t_env *e)
 	x = -1;
 	while (++x < e->resolution[0])
 		drawlinebuffer(e, x, buf[x]);
-	/*bitmap("test.bmp", e->resolution[0], e->resolution[1], buf);*/
+	if (save == 1)
+		bitmap("cub3d.bmp", e->resolution[0], e->resolution[1], buf);
 	free(zbuf);
 	clear_buf(&buf, e);
-	/*exitgame(e);*/
+	if (save == 1)
+		exitgame(e);
 }
 
-void	draw(t_env *e)
+void	draw(t_env *e, int save)
 {
 	int			x;
 	int			y;
@@ -67,5 +69,5 @@ void	draw(t_env *e)
 	free(e->img_temp);
 	createcontext(e);
 	contexttoenv(e);
-	mkimage(e);
+	mkimage(e, save);
 }

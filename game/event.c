@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 07:25:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/24 07:39:47 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 09:00:38 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		move(t_env *e)
 		rotate_left(e, rotspeed);
 	if (e->keys.t_123 == 1)
 		rotate_right(e, rotspeed);
-	draw(e);
+	draw(e, 0);
 	contexttoenv(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	return (0);

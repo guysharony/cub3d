@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:27 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/24 08:48:29 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 08:56:48 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,14 @@ int		check_arguments(int ac, char **av)
 int		main(int ac, char **av)
 {
 	t_env	*e;
+	int		save;
 
+	save = 0;
 	if (check_arguments(ac, av) == -1)
 		exit(0);
-	e = envinit(av);
+	if (ac == 3)
+		save = 1;
+	e = envinit(av, save);
 	game_loop(e);
 	return (EXIT_SUCCESS);
 }
