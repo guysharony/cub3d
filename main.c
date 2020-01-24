@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:27 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/23 10:26:38 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 08:48:29 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,34 @@ void	game_loop(t_env *e)
 	}
 }
 
+int		check_arguments(int ac, char **av)
+{
+	int e;
+
+	e = 0;
+	if (ac > 1 && ac < 4)
+	{
+		if (ac == 3 && ft_strcmp(av[2], "-save") != 0)
+			e++;
+		if (ft_isftype(av[1], "cub") == -1)
+			e++;
+	}
+	else if (ac < 2)
+		e += ft_error("Map file needed.", NULL);
+	else if (ac > 3)
+		e += ft_error("Too many arguments.", NULL);
+	if (e > 0)
+		return (-1);
+	return (1);
+}
+
 int		main(int ac, char **av)
 {
 	t_env	*e;
 
-	if (ac > 1)
-	{
-		e = envinit(av);
-		game_loop(e);
-		ft_clean(e->game);
-	}
-	else
-		ft_error("Please enter a valid argument.", NULL);
+	if (check_arguments(ac, av) == -1)
+		exit(0);
+	e = envinit(av);
+	game_loop(e);
 	return (EXIT_SUCCESS);
 }
