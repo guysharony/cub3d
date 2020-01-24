@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 09:16:14 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/23 11:17:50 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 09:17:38 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int			make_bitmap(char *fn, int w, int h, t_data **data)
 	int			fd;
 	t_bitmap	bmp;
 
-	fd = open(fn, O_WRONLY|O_CREAT|O_TRUNC);
+	fd = open(fn, O_WRONLY | O_CREAT | O_TRUNC);
 	bmp = set_bmp(w, h);
 	wrt_bmp(bmp, data, fd);
 	return (1);
@@ -67,15 +67,19 @@ int			bitmap(char *fn, int w, int h, int **data)
 	int		i;
 	int		j;
 
+	i = 0;
 	b = malloc_buf_data(w, h);
-	for (i = 0; i < w; i++)
+	while (i < w)
 	{
-		for (j = 0; j < h; j++)
+		j = 0;
+		while (j < h)
 		{
 			b[j][i].r = data[i][j] >> 16;
 			b[j][i].g = (data[i][j] - (b[i][j].r << 16)) >> 8;
 			b[j][i].b = data[i][j] - (b[i][j].r << 16) - (b[i][j].g << 8);
+			j++;
 		}
+		i++;
 	}
 	make_bitmap(fn, w, h, b);
 	clear_buf_data(&b, w);
