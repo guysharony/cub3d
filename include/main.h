@@ -6,14 +6,12 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/24 07:23:13 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 08:14:55 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAIN_H
 # define MAIN_H
-# define TEXTUREW 64
-# define TEXTUREH 64
 
 # include <stdlib.h>
 # include <string.h>
@@ -45,6 +43,7 @@ typedef struct		s_setup
 	int				bpp;
 	int				sl;
 	int				endian;
+	t_pos			size;
 }					t_setup;
 
 typedef struct		s_keys
@@ -143,7 +142,7 @@ void				set_draw_sprt(t_env *e, int x, int ***buf, double **zbuf);
 double				compute_wall(t_env *e, t_draw_wall draw);
 double				compute_sprite(t_env *e, t_draw_wall draw);
 double				get_wallx(t_env *e, t_draw_wall draw);
-int					get_texture_posx(t_env *e, t_draw_wall draw);
+int					get_texture_posx(t_env *e, t_draw_wall draw, int i);
 int					get_wallc(t_env *e, t_draw_wall draw, int dy);
 t_coo				spt_transform(t_env *e, t_draw_sprite draw);
 t_pos				spt_size(t_env *e, t_draw_sprite draw);

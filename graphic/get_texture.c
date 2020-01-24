@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 12:50:26 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/21 14:54:20 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 07:57:02 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	get_texture_north(t_env *e)
 		&e->textures[0].bpp,
 		&e->textures[0].sl,
 		&e->textures[0].endian);
+	e->textures[0].size.x = iw;
+	e->textures[0].size.y = ih;
 }
 
 void	get_texture_south(t_env *e)
@@ -38,6 +40,8 @@ void	get_texture_south(t_env *e)
 		&e->textures[1].bpp,
 		&e->textures[1].sl,
 		&e->textures[1].endian);
+	e->textures[1].size.x = iw;
+	e->textures[1].size.y = ih;
 }
 
 void	get_texture_east(t_env *e)
@@ -52,6 +56,8 @@ void	get_texture_east(t_env *e)
 		&e->textures[2].bpp,
 		&e->textures[2].sl,
 		&e->textures[2].endian);
+	e->textures[2].size.x = iw;
+	e->textures[2].size.y = ih;
 }
 
 void	get_texture_west(t_env *e)
@@ -66,6 +72,8 @@ void	get_texture_west(t_env *e)
 		&e->textures[3].bpp,
 		&e->textures[3].sl,
 		&e->textures[3].endian);
+	e->textures[3].size.x = iw;
+	e->textures[3].size.y = ih;
 }
 
 void	get_texture_sprite(t_env *e)
@@ -80,4 +88,6 @@ void	get_texture_sprite(t_env *e)
 		&e->textures[4].bpp,
 		&e->textures[4].sl,
 		&e->textures[4].endian);
+	e->textures[4].size.x = iw;
+	e->textures[4].size.y = ih;
 }
