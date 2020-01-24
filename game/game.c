@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/24 09:02:16 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 10:18:45 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	clear_buf(int ***buf, t_env *e)
 void	mkimage(t_env *e, int save)
 {
 	int			x;
-	int			y;
 	int			**buf;
 	double		*zbuf;
 
@@ -61,9 +60,6 @@ void	mkimage(t_env *e, int save)
 
 void	draw(t_env *e, int save)
 {
-	int			x;
-	int			y;
-
 	mlx_destroy_image(e->mlx, e->img);
 	createenv(e);
 	free(e->img_temp);

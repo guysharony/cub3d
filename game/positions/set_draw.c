@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 11:55:58 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/24 09:12:45 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 10:21:13 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	set_draw_wall(t_env *e, int x, int ***buf, double **zbuf)
 	draw.cam = 2 * x / (double)(e->resolution[0]) - 1;
 	draw.ray = ray_dir(e, draw.cam);
 	draw.map = map_pos(e);
-	draw.dlt = dlt_dst(e, draw.ray);
+	draw.dlt = dlt_dst(draw.ray);
 	draw.stp = get_stp(draw.ray);
 	draw.sld = get_sld(e, draw.ray, draw.dlt, draw.map);
 	draw = set_hit(e, draw);

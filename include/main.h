@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/24 09:00:05 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 10:22:27 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ typedef struct		s_env
 
 t_coo				sld_int(t_env *e, t_pos map, t_coo dlt, t_coo ray);
 t_coo				ray_dir(t_env *e, double camerax);
-t_coo				dlt_dst(t_env *e, t_coo ray);
+t_coo				dlt_dst(t_coo ray);
 t_pos				map_pos(t_env *e);
 t_pos				stp_int(t_coo ray);
 
@@ -129,7 +129,6 @@ void				move_right(t_env *e, double movespeed);
 void				rotate_left(t_env *e, double rotspeed);
 void				rotate_right(t_env *e, double rotspeed);
 
-t_coo				dlt_dst(t_env *e, t_coo ray);
 t_pos				map_pos(t_env *e);
 t_coo				ray_dir(t_env *e, double camerax);
 t_coo				sld_int(t_env *e, t_pos map, t_coo dlt, t_coo ray);
@@ -151,7 +150,7 @@ t_pos				spt_texture(t_env *e, t_draw_sprite draw, int i, int d);
 t_pos				spt_draw_x(t_env *e, t_draw_sprite draw);
 t_pos				spt_draw_y(t_env *e, t_draw_sprite draw);
 int					spt_screenx(t_env *e, t_draw_sprite draw);
-double				spt_invdet(t_env *e, t_draw_sprite draw);
+double				spt_invdet(t_env *e);
 
 t_vector			c_vector(int x, int y, int z);
 t_env				*envinit(char **av, int save);
