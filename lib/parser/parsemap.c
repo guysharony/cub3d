@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 13:00:00 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/23 13:03:56 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 10:01:02 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ void	getmap(t_game *game, int file)
 	while (get_next_line(file, &line) > 0 &&
 			a < game->map->height + 1 && game->map->height > 0)
 	{
-		width = getmap_width(line);
-		if (width > 1)
+		if ((width = getmap_width(line)) > 1)
 		{
-			map_line = getmap_line(line, width);
-			game->map->map[a++] = map_line;
+			game->map->map[a++] = getmap_line(line, width);
 			free(line);
 		}
 		else
 			break ;
 	}
+	if ((width = getmap_width(line)) > 1)
+		game->map->map[a++] = getmap_line(line, width);
 	free(line);
 	game->map->map[a] = NULL;
 }

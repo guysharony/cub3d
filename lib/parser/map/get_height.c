@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 12:59:34 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/15 12:59:35 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 09:53:53 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,12 @@ void	getmap_height(t_game *game, char *map)
 	{
 		width = getmap_width(line);
 		if (width > 1)
-		{
-			map_line = getmap_line(line, width);
 			game->map->height++;
-			free(map_line);
-		}
 		else
 			break ;
 		free(line);
 	}
+	if ((width = getmap_width(line)) > 1)
+		game->map->height++;
 	free(line);
 }
