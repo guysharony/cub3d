@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 12:39:25 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/24 08:13:26 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/24 10:12:52 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		get_wallc(t_env *e, t_draw_wall draw, int dy)
 
 	if (draw.sde == 0)
 	{
-		if (draw.ray.x > 0)
+		if (draw.ray.x <= 0)
 			color = get_wc(e, draw, 0, dy);
 		else
 			color = get_wc(e, draw, 1, dy);

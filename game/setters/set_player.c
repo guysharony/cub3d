@@ -6,13 +6,13 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 13:45:51 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/18 19:02:39 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/24 10:06:34 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/main.h"
 
-void	set_player_north(t_env *e)
+void	set_player_south(t_env *e)
 {
 	e->player.dir.x = 1.0;
 	e->player.dir.y = 0.0;
@@ -20,7 +20,7 @@ void	set_player_north(t_env *e)
 	e->plane.y = -0.65;
 }
 
-void	set_player_south(t_env *e)
+void	set_player_north(t_env *e)
 {
 	e->player.dir.x = -1.0;
 	e->player.dir.y = 0.0;
