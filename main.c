@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:27 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/24 08:56:48 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/26 09:06:42 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	get_texture(t_env *e)
 	get_texture_sprite(e);
 }
 
-void	game_loop(t_env *e)
+void	game_loop(t_env *e, int save)
 {
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	while (1)
@@ -30,6 +30,8 @@ void	game_loop(t_env *e)
 		mlx_hook(e->win, 2, 1L << 0, keydown, e);
 		mlx_hook(e->win, 3, 1L << 1, keyup, e);
 		mlx_loop_hook(e->mlx, move, e);
+		if (save == 1)
+			exitgame(e);
 		mlx_loop(e->mlx);
 	}
 }
@@ -66,6 +68,6 @@ int		main(int ac, char **av)
 	if (ac == 3)
 		save = 1;
 	e = envinit(av, save);
-	game_loop(e);
+	game_loop(e, save);
 	return (EXIT_SUCCESS);
 }

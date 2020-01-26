@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 08:01:46 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/25 12:06:33 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/26 08:54:09 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ void	mkimage(t_env *e, int save)
 		bitmap("cub3d.bmp", e->resolution[0], e->resolution[1], buf);
 	free(zbuf);
 	clear_buf(&buf, e);
-	if (save == 1)
-		exitgame(e);
 }
 
 void	draw(t_env *e, int save)
