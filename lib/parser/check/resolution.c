@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 09:31:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/16 09:49:57 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/26 10:56:10 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int		checkresolution(char **resolution)
 	}
 	if (e > 0)
 		return (-1);
-	return (checkargnum(resolution, 3));
+	return (checkargnum(resolution, 2));
 }

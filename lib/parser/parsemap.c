@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 13:00:00 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/25 18:29:14 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/26 10:48:34 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	getmap(t_game *game, int file)
 	char	*map_line;
 
 	a = 0;
-	game->map->map = malloc(sizeof(char *) * game->map->height);
+	game->map->map = malloc(sizeof(char *) * (game->map->height + 1));
 	if ((map_line = jumpto_map(file)) != NULL)
 		game->map->map[a++] = map_line;
 	while (get_next_line(file, &line) > 0 &&

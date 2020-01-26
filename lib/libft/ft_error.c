@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 10:48:20 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/25 17:51:13 by guysharon        ###   ########.fr       */
+/*   Updated: 2020/01/26 11:00:56 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int		ft_error_param(char *command, int nb)
 	ft_putstr("]: ");
 	ft_putnbr(nb);
 	if (nb == 1)
-		ft_putstr(" argument is expected!");
+		ft_putstr(" parameter is expected!");
 	else
-		ft_putstr(" arguments are expected!");
+		ft_putstr(" parameters are expected!");
 	ft_putstr("\n");
 	return (1);
 }

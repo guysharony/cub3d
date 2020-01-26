@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 09:32:31 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/16 09:49:16 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/26 10:56:53 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ int		checkcolor(char **color)
 	free(rgb);
 	if (e > 0)
 		return (-1);
-	return (checkargnum(color, 2));
+	return (checkargnum(color, 1));
 }
