@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 13:00:00 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/26 10:48:34 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/26 14:57:08 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void	getplayer(t_game *game)
 	int		b;
 
 	a = 0;
-	game->sprite->sprite = (t_pos *)malloc(sizeof(t_pos) *
-			(game->sprite->size));
 	while (game->map->map[a] != NULL)
 	{
 		b = 0;
@@ -74,6 +72,7 @@ void	getsprite(t_game *game)
 
 	a = 0;
 	c = 0;
+	game->sprite->sprite = (t_pos *)malloc(sizeof(t_pos) * (game->sprite->size));
 	while (game->map->map[a] != NULL)
 	{
 		b = 0;

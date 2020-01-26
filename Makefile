@@ -6,7 +6,7 @@
 #    By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/23 07:41:52 by gsharony          #+#    #+#              #
-#    Updated: 2020/01/25 18:37:21 by guysharon        ###   ########.fr        #
+#    Updated: 2020/01/26 14:57:22 by gsharony         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ RM			= rm -f
 
 CFLAGS		= -Wall -Werror -Wextra -I ${INCLUDES}
 
-EXE			= cub3d
+EXE			= cub3D
 
 all:		${EXE}
 
