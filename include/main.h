@@ -6,14 +6,13 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:14:45 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/26 07:46:01 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/26 12:02:05 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAIN_H
 # define MAIN_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <math.h>

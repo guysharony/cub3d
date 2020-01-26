@@ -6,14 +6,13 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 12:44:33 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/26 11:54:24 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/26 12:02:21 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include "../lib.h"
