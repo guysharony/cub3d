@@ -6,7 +6,7 @@
 /*   By: gsharony <gsharony@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 09:16:14 by gsharony          #+#    #+#             */
-/*   Updated: 2020/01/26 08:31:17 by gsharony         ###   ########.fr       */
+/*   Updated: 2020/01/26 11:58:11 by gsharony         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_bitmap	set_bmp(int w, int h)
 	while (i++ < 54)
 		bmp.header[i] = 0;
 	bmp.pi = w * sizeof(t_data);
-	bmp.pa = (4 - (bmp.pi % 4)) % 4;
+	bmp.pa = 0;
 	bmp.header[0] = (unsigned char)'B';
 	bmp.header[1] = (unsigned char)'M';
 	*((unsigned int*)&bmp.header[2]) = 54 + (bmp.pi + bmp.pa) * h;
@@ -43,10 +43,7 @@ void		wrt_bmp(t_bitmap bmp, t_data **data, int fd)
 	i = bmp.height;
 	write(fd, bmp.header, 54);
 	while (i-- > 0)
-	{
 		write(fd, data[i], bmp.pi);
-		write(fd, "\0\0\0", bmp.pa);
-	}
 	close(fd);
 }
 
